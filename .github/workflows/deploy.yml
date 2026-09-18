@@ -1,4 +1,4 @@
 - name: Checkout
-uses: actions/checkout@v4
-with:
+  uses: actions/checkout@v4
+  with:
     lfs: true
