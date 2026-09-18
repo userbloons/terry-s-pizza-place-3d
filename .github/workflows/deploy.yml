@@ -1,0 +1,24 @@
+name: hehe
+
+on:
+  push:
+    branches: [ main ] # Change to master if your default branch is master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true # <-- Pulls raw game files, not pointers
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # <-- Type the path to your WebGL folder here if it's not in the root
+
+      - uses: actions/deploy-pages@v4
